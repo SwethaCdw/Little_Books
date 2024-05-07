@@ -1,0 +1,1 @@
+export const blogsAPILink = 'https://jsonmockserver.vercel.app/api/blogs';
