@@ -1,0 +1,108 @@
+.blog-container {
+  width: 85%;
+  display: flex;
+}
+.blog-container .blog-list {
+  width: 40%;
+  background-color: #f5f6fa;
+  padding: 30px;
+}
+.blog-container .blog-list .blog-list-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.blog-container .blog-list .blog-list-header .search-input {
+  width: 75%;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 28px;
+  border: none;
+  background-color: #ebecf3;
+}
+.blog-container .blog-list .blog-list-header .new-blog {
+  width: 25%;
+  border: none;
+  border-radius: 32px;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+}
+.blog-container .blog-list .card-list {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 60px;
+}
+.blog-container .blog-list .card-list::-webkit-scrollbar {
+  display: none;
+}
+.blog-container .blog-list .card-list .card {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.blog-container .blog-list .card-list .card.selected {
+  background-color: #96e2f4;
+}
+.blog-container .detailed-description {
+  width: 57%;
+  overflow: auto;
+  margin: 25px auto;
+  padding: 30px;
+}
+.blog-container .detailed-description img {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.blog-container .detailed-description .selected-blog-title {
+  font-family: "Roboto Slab", serif;
+  margin: 25px 0;
+  border: none;
+  font-size: 35px;
+  font-weight: 800;
+}
+.blog-container .detailed-description .selected-blog-details {
+  font-family: "IBM Plex Sans", sans-serif;
+  width: 100%;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  border: none;
+}
+.blog-container .detailed-description .save-content-btn {
+  background-color: #b354b7;
+  color: white;
+  margin-left: 10px;
+}
+.blog-container .detailed-description button {
+  margin-bottom: 30px;
+  float: right;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  background-color: #69f8f9;
+}
+.blog-container.dark {
+  background-color: #021929;
+  color: white;
+}
+.blog-container.dark .blog-list {
+  background-color: black;
+  color: white;
+}
+.blog-container.dark .blog-list .search-input {
+  background-color: #021929;
+}
+.blog-container.dark .blog-list .card {
+  background-color: #042b46;
+  color: white;
+}
+.blog-container.dark .blog-list .card.selected {
+  background-color: #021929;
+}
+.blog-container.dark input {
+  color: white;
+}/*# sourceMappingURL=BlogList.css.map */

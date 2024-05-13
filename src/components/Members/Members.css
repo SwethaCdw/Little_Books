@@ -1,0 +1,38 @@
+.members-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+}
+.members-modal-backdrop .members-modal-content {
+  width: 600px;
+  height: 100%;
+  background-color: white;
+  padding: 80px 50px;
+  transition: all 0.5s ease;
+}
+.members-modal-backdrop .members-modal-content.dark {
+  background-color: #021929;
+  color: white;
+}
+.members-modal-backdrop .members-modal-content .members-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  list-style: none;
+}
+.members-modal-backdrop .members-modal-content .members-list img {
+  width: 160px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}/*# sourceMappingURL=Members.css.map */

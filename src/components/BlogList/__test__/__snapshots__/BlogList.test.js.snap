@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogList component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="blog-container "
+  >
+    <div
+      class="blog-list"
+    >
+      <div
+        class="blog-list-header"
+      >
+        <input
+          class="search-input"
+          placeholder="Search Blog"
+          type="text"
+          value=""
+        />
+        <button
+          class="new-blog"
+        >
+          NEW
+        </button>
+      </div>
+      <ul
+        class="card-list"
+      >
+        <li
+          class="card selected"
+        >
+          <div
+            class="card-container"
+          >
+            <h3
+              class="title"
+            >
+              Blog 1
+            </h3>
+            <p
+              class="type"
+            >
+              TYPE 1
+            </p>
+            <p
+              class="description"
+              title="DETAILS 1"
+            >
+              Details 1
+            </p>
+          </div>
+        </li>
+        <li
+          class="card "
+        >
+          <div
+            class="card-container"
+          >
+            <h3
+              class="title"
+            >
+              Blog 2
+            </h3>
+            <p
+              class="type"
+            >
+              TYPE 2
+            </p>
+            <p
+              class="description"
+              title="DETAILS 2"
+            >
+              Details 2
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="detailed-description"
+    >
+      <img
+        alt="Blog 1"
+        src="https://clarionhealthcare.com/wp-content/uploads/2020/12/default-fallback-image.png"
+        style="display: block;"
+      />
+      <h1
+        class="selected-blog-title"
+      >
+        Blog 1
+      </h1>
+      <p
+        class="selected-blog-details"
+      >
+        Details 1
+      </p>
+      <button>
+        EDIT CONTENT
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,66 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 16%;
+  background-color: white;
+  border: none;
+  height: 100vh;
+}
+.sidebar-container.dark-mode {
+  background-color: #021929;
+  color: white;
+}
+.sidebar-container.dark-mode .view-members, .sidebar-container.dark-mode .app-theme {
+  color: white !important;
+}
+.sidebar-container.dark-mode .view-members:hover, .sidebar-container.dark-mode .app-theme:hover {
+  color: gray !important;
+}
+.sidebar-container .logo {
+  font-size: 28px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  padding: 50px 20px;
+  text-align: center;
+}
+.sidebar-container .logo span:first-child {
+  color: #b354b7;
+}
+.sidebar-container .logo span:nth-child(2) {
+  font-weight: 500;
+}
+.sidebar-container .filter-items {
+  list-style: none;
+}
+.sidebar-container .filter-items .filter-heading {
+  padding-bottom: 10px;
+}
+.sidebar-container .filter-items li {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+.sidebar-container .filter-items li input {
+  accent-color: #b354b7;
+  width: 17px;
+  cursor: pointer;
+}
+.sidebar-container .filter-items li .filter-item {
+  font-size: 15px;
+}
+.sidebar-container .buttons {
+  margin-bottom: 45px;
+}
+.sidebar-container .buttons .view-members, .sidebar-container .buttons .app-theme {
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.sidebar-container .buttons .view-members:hover, .sidebar-container .buttons .app-theme:hover {
+  color: gray;
+}/*# sourceMappingURL=Sidebar.css.map */

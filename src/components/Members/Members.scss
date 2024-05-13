@@ -1,0 +1,40 @@
+.members-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+   
+    .members-modal-content {
+        width: 600px;
+        height: 100%;
+        background-color: white;
+        padding: 80px 50px;
+        transition: all 0.5s ease;
+        &.dark {
+            background-color: #021929;
+            color: white;
+        }
+        .members-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            list-style: none;
+            img {
+                width: 160px;
+                height: 150px;
+                object-fit: cover;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+             }
+        }
+       
+    }
+  }
+  
