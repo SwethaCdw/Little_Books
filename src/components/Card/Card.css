@@ -10,7 +10,7 @@
   text-transform: capitalize;
 }
 .card-container .type {
-  font-size: 13px;
+  font-size: 0.813rem;
   padding: 10px 0;
   color: #b354b7;
   font-weight: 500;
@@ -20,6 +20,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }/*# sourceMappingURL=Card.css.map */

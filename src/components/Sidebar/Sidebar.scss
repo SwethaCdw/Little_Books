@@ -1,31 +1,29 @@
 .sidebar-container {
-    display: flex;
+    @include flex-align(space-between, center);
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     width: 16%;
-    background-color: white;
+    background-color: $new-blog-light;
     border: none;
     height: 100vh;
     &.dark-mode {
-        background-color: #021929;
-        color: white;
+        background-color: $dark-background;
+        color: $dark-text-color;
         .view-members, .app-theme {
-            color: white !important;
+            color: $dark-text-color !important;
             &:hover {
-                color: gray !important;
+                color: $form-input-color !important;
             }
         }
     }
     .logo {
         font-size: 28px;
-        font-family: "Roboto Slab", serif;
+        font-family: $font-family-primary;
         font-weight: 400;
         padding: 50px 20px;
         text-align: center;
 
         span:first-child {
-            color: #b354b7;
+            color: $primary-color;
         }
         span:nth-child(2) {
             font-weight: 500;
@@ -42,7 +40,7 @@
         gap: 10px;
         padding-bottom: 10px;
         input {
-            accent-color: #b354b7;
+            accent-color: $primary-color;
             width: 17px;
             cursor: pointer;
         }
@@ -57,11 +55,11 @@
             font-size: 15px;
             border: none;
             background-color: transparent;
-            color: black;
+            color: $text-color;
             padding-bottom: 10px;
             cursor: pointer;
             &:hover {
-                color: gray;
+                color: $form-input-color;
             }
         }
     }

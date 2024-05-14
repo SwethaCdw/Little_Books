@@ -9,6 +9,7 @@
 }
 .blog-container .blog-list .blog-list-header {
   display: flex;
+  align-items: normal;
   justify-content: space-between;
   gap: 15px;
   margin-bottom: 20px;
@@ -20,6 +21,7 @@
   border-radius: 28px;
   border: none;
   background-color: #ebecf3;
+  font-size: 15px;
 }
 .blog-container .blog-list .blog-list-header .new-blog {
   width: 25%;
@@ -27,7 +29,7 @@
   border-radius: 32px;
   color: white;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 1.125rem;
 }
 .blog-container .blog-list .card-list {
   overflow: auto;
@@ -39,35 +41,40 @@
 }
 .blog-container .blog-list .card-list .card {
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: white;
 }
-.blog-container .blog-list .card-list .card.selected {
+.blog-container .blog-list .card-list .card.active {
   background-color: #96e2f4;
 }
 .blog-container .detailed-description {
   width: 57%;
-  overflow: auto;
   margin: 25px auto;
-  padding: 30px;
 }
 .blog-container .detailed-description img {
-  width: 100%;
+  width: 94%;
   height: 450px;
   border-radius: 20px;
+  margin: 20px 20px 0;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .blog-container .detailed-description .selected-blog-title {
+  width: 100%;
+  font-size: 28px;
   font-family: "Roboto Slab", serif;
-  margin: 25px 0;
+  padding: 0 10px;
+  margin: 25px 10px;
   border: none;
-  font-size: 35px;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 500;
 }
 .blog-container .detailed-description .selected-blog-details {
-  font-family: "IBM Plex Sans", sans-serif;
+  height: 30%;
+  padding: 0 10px 20px;
+  margin: 0 10px;
+  overflow: auto;
   width: 100%;
-  font-size: 17px;
+  font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: 15px;
   border: none;
@@ -84,6 +91,7 @@
   padding: 10px 25px;
   border-radius: 30px;
   background-color: #69f8f9;
+  font-weight: 600;
 }
 .blog-container.dark {
   background-color: #021929;
@@ -100,9 +108,13 @@
   background-color: #042b46;
   color: white;
 }
-.blog-container.dark .blog-list .card.selected {
+.blog-container.dark .blog-list .card.active {
   background-color: #021929;
 }
-.blog-container.dark input {
+.blog-container.dark input, .blog-container.dark textarea {
   color: white;
+  background-color: #021929;
+}
+.blog-container textarea {
+  font-family: inherit;
 }/*# sourceMappingURL=BlogList.css.map */

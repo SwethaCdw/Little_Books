@@ -6,8 +6,8 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   z-index: 1000;
 }
 .members-modal-backdrop .members-modal-content {
@@ -27,8 +27,11 @@
   gap: 20px;
   list-style: none;
 }
+.members-modal-backdrop .members-modal-content .members-list .member-name {
+  color: #b354b7;
+}
 .members-modal-backdrop .members-modal-content .members-list img {
-  width: 160px;
+  width: 156px;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;

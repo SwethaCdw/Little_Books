@@ -10,7 +10,8 @@ const blogSlice = createSlice({
     selectedBlog: null,
     imageLoaded: false,
     showNewBlogModal: false,
-    selectedFilters: BLOG_TYPE
+    selectedFilters: BLOG_TYPE,
+    editMode: false
   },
   reducers: {
     setBlogsData(state, action) {
@@ -27,7 +28,8 @@ const blogSlice = createSlice({
       state.imageLoaded = action.payload;
     },
     addNewBlog: (state, action) => {
-      state.blogsData.push(action.payload);
+      state.blogsData = [action.payload, ...state.blogsData];
+      setItemInLocalStorage('blogs', JSON.stringify(state.blogsData));
     },
     setShowNewBlogModal: (state, action) => {
       state.showNewBlogModal = action.payload;
@@ -45,10 +47,13 @@ const blogSlice = createSlice({
     }, 
     updateSelectedFilter : (state, action) => {
       state.selectedFilters = action.payload;
+    },
+    setEditMode : (state, action) => {
+      state.editMode = action.payload;
     }
   }
 });
 
-export const { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, addNewBlog, setShowNewBlogModal, updateSelectedBlog, updateSelectedFilter} = blogSlice.actions;
+export const { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, addNewBlog, setShowNewBlogModal, updateSelectedBlog, updateSelectedFilter, setEditMode} = blogSlice.actions;
 
 export default blogSlice.reducer;

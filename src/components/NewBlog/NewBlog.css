@@ -6,6 +6,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   align-items: center;
   z-index: 1000;
@@ -34,7 +35,7 @@
 .modal-backdrop .modal-content .form-input select {
   width: 100%;
   padding: 10px 0;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans", sans-serif';
   font-size: 1rem;
   border: none;
   border-bottom: 0.5px solid lightgray;
@@ -47,6 +48,7 @@
   border-color: #6c757d;
 }
 .modal-backdrop .modal-content .form-input .choose-file-button {
+  font-family: 'Roboto Slab", serif';
   cursor: pointer;
   font-size: 1rem;
 }
@@ -57,21 +59,21 @@
   width: 100%;
   border: none;
   outline: none;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans", sans-serif';
   background: none;
 }
 .modal-backdrop .modal-content textarea {
   min-height: 285px;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .modal-backdrop .modal-content .title {
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 .modal-backdrop .modal-content input[type=file] {
   display: none;
 }
 .modal-backdrop .modal-content .custom-file-upload {
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
@@ -80,9 +82,14 @@
   margin-bottom: 20px;
 }
 .modal-backdrop .modal-content .blog-submit-btn {
-  float: right;
   color: white;
   margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 40px;
+  margin: 20px;
 }
 .modal-backdrop .modal-content .selected-image img {
   width: 100%;

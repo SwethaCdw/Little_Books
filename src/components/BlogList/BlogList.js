@@ -6,13 +6,15 @@ import Search from '../Search/Search';
 import { handleImageError } from '../../utils/common-utils';
 import { FALLBACK_IMAGE } from '../../constants/common-constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, setShowNewBlogModal, updateSelectedBlog } from '../../store/blogSlice';
+import { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, setShowNewBlogModal, updateSelectedBlog, setEditMode } from '../../store/blogSlice';
 import NewBlogModal from '../NewBlog/NewBlog';
 import AlertDialog from '../Dialog/AlertDialog';
 import { getItemFromLocalStorage } from '../../utils/local-storage-utils';
+import { BUTTONS, IMAGE_LOADING, NO_BLOGS_FOUND, WARNING_MODAL } from '../../constants/blog-constants';
 
 
 const BlogList = () => {
+    //Dispatch
     const dispatch = useDispatch();
     const blogsData = useSelector((state) => state.blog.blogsData);
     const searchTerm = useSelector((state) => state.blog.searchTerm);
@@ -21,38 +23,18 @@ const BlogList = () => {
     const showNewBlogModal = useSelector((state) => state.blog.showNewBlogModal);
     const darkMode = useSelector((state) => state.theme.darkMode);
     const selectedFilters = useSelector((state) => state.blog.selectedFilters);
-    const [editMode, setEditMode] = useState(false);
+    const editMode = useSelector((state) => state.blog.editMode);
+
+    //States
     const [showWarningModal, setShowWarningModal] = useState(false);
     const [clickedBlog, setClickedBlog] = useState(null);
-    const [textareaHeight, setTextareaHeight] = useState('auto');
-    const textareaRef = useRef(null); 
 
-    const handleNewBlogClick = () => {
-      dispatch(setShowNewBlogModal(true));
-    };
-  
-    const handleCloseModal = () => {
-      dispatch(setShowNewBlogModal(false));
-    };
+    const titleInputRef = useRef(null);
 
-    const adjustTextareaHeight = () => {
-      if (textareaRef?.current) {
-        setTextareaHeight(`${textareaRef?.current.scrollHeight}px`);
-      }
-    };
-
-    const handleEditContent = () => {
-      setEditMode(!editMode);
-      if (editMode) {
-        adjustTextareaHeight(); 
-      }
-    };  
-
-    const handleSaveContent = () => {
-      dispatch(updateSelectedBlog(selectedBlog));
-      setEditMode(false); 
-    };
-
+   
+    /**
+     * Fetch the data from API
+     */
     useEffect(() => {
       const fetchDataFromApi = async () => {
         try {
@@ -73,6 +55,19 @@ const BlogList = () => {
       fetchDataFromApi();
     }, [dispatch]);
 
+      /**
+   * Focus the title input when edit mode is enabled
+   */
+  useEffect(() => {
+    if (editMode && titleInputRef.current) {
+      titleInputRef.current.focus();
+    }
+  }, [editMode]);
+
+
+    /**
+     * Set loader until image is loaded
+     */
     const handleImageLoaded = () => {
       dispatch(setImageLoaded(true));
     };
@@ -84,27 +79,57 @@ const BlogList = () => {
         item.type.toLowerCase().includes(searchTerm.toLowerCase())
     ).filter((item) => selectedFilters.includes(item.type));;
 
-    const handleBlogClick = (blogDetails) => {
-      if(editMode){
-        setClickedBlog(blogDetails);
 
-        setShowWarningModal(true);
-      } else {
-        dispatch(setSelectedBlog(blogDetails));
-      }
-    }
-
+    /**
+     * Handle Warning modal Cancel
+     */
     const handleAlertClose = () => {
       setShowWarningModal(false);
     }
 
-    const handleOkay = () => {
+    /**
+     * Handle Warning modal Okay
+     */
+    const handleAlertOkay = () => {
       setShowWarningModal(false);
-      setEditMode(!editMode);
+      dispatch(setEditMode(!editMode));
       dispatch(setSelectedBlog(clickedBlog));
-
     }
 
+    /**
+     * Handle Clicks
+     * @param {*} option 
+     * @param {*} blogDetails 
+     */
+    const handleClick = (option, blogDetails) => {
+      switch(option) {
+        case BUTTONS.NEW_BLOG:
+          dispatch(setShowNewBlogModal(true));
+          break;
+        case BUTTONS.CANCEL:
+          dispatch(setShowNewBlogModal(false));
+          break;
+        case BUTTONS.BLOG:
+          if(editMode){
+            setClickedBlog(blogDetails);
+            setShowWarningModal(true);
+          } else {
+            dispatch(setSelectedBlog(blogDetails));
+          }
+          break;
+        case BUTTONS.SAVE_CONTENT:
+          dispatch(updateSelectedBlog(selectedBlog));
+          dispatch(setEditMode(false));
+          break;
+        case BUTTONS.EDIT_CONTENT:
+          dispatch(setEditMode(!editMode));
+          
+          break;
+        default: 
+
+        }
+      }
+    
 
   return (
     <div className={`blog-container ${darkMode ? 'dark' : ''}`}>
@@ -114,16 +139,16 @@ const BlogList = () => {
                   className='search-input' 
                   value={searchTerm} 
                   onChange={(e) => dispatch(setSearchTerm(e.target.value))} 
-                  placeholder='Search Blog' 
+                  placeholder='Search Blogs' 
                   type='text'
                 />
-                <button className='new-blog' onClick={handleNewBlogClick}>NEW</button>
+                <button className='new-blog' onClick={() => handleClick(BUTTONS.NEW_BLOG)}>{BUTTONS.NEW_BLOG}</button>
             </div>
             <ul className='card-list'>
                 {filteredBlogs.length ? ( 
                   filteredBlogs?.map(item => {
                     return (
-                        <li key={item.title} className={`card ${selectedBlog && selectedBlog.title === item.title ? 'selected' : ''}`} onClick={() => handleBlogClick(item)}>
+                        <li key={item.title} className={`card ${selectedBlog && selectedBlog.title === item.title ? 'active' : ''}`} onClick={() => handleClick(BUTTONS.BLOG, item)}>
                             <Card 
                                 key={item.title}
                                 title={item.title}
@@ -133,14 +158,16 @@ const BlogList = () => {
                          </li>
                     )
                 })) : (
-                  <p className='no-blogs-found'>No blogs found.</p>
+                  <p className='no-blogs-found'>{NO_BLOGS_FOUND}</p>
                 )}
             </ul>
         </div>
+        
+        
         <div className='detailed-description'>
             {selectedBlog &&
             <>
-                {!imageLoaded && <div className="loader">Loading...</div>}
+                {!imageLoaded && <div className="loader">{IMAGE_LOADING}</div>}
                 <img
                     src={selectedBlog.photo || FALLBACK_IMAGE}
                     alt={selectedBlog.title}
@@ -150,15 +177,13 @@ const BlogList = () => {
                 />
                 {editMode ? ( 
                   <>
-                    <input type='text' className='selected-blog-title' value={selectedBlog.title} onChange={(e) => dispatch(setSelectedBlog({ ...selectedBlog, title: e.target.value }))}></input>
+                    <input type='text' ref={titleInputRef} className='selected-blog-title' value={selectedBlog.title} onChange={(e) => dispatch(setSelectedBlog({ ...selectedBlog, title: e.target.value }))}></input>
                     <textarea
-                      ref={textareaRef} 
                       value={selectedBlog.details}
                       onChange={(e) => dispatch(setSelectedBlog({ ...selectedBlog, details: e.target.value }))}
                       className='selected-blog-details'
-                      style={{ height: textareaHeight }}
                       />
-                    <button onClick={handleSaveContent} className='save-content-btn'>SAVE CONTENT</button>
+                    <button onClick={() => handleClick(BUTTONS.SAVE_CONTENT)} className='save-content-btn'>{BUTTONS.SAVE_CONTENT}</button>
                   </>
                 ) : (
                   <>
@@ -167,14 +192,14 @@ const BlogList = () => {
                   </>
                 )}
                 
-                <button onClick={handleEditContent}>
-                  {editMode ? 'CANCEL' : 'EDIT CONTENT'}
+                <button onClick={() => handleClick(BUTTONS.EDIT_CONTENT)}>
+                  {editMode ? BUTTONS.CANCEL : BUTTONS.EDIT_CONTENT}
                 </button>
             </>  
             }
         </div>
-        {showNewBlogModal && <NewBlogModal onClose={handleCloseModal} />}
-        {showWarningModal && <AlertDialog title='Do you wish stop the edit?' cancelText='Cancel' okayText='Yes' handleAlertClose={handleAlertClose} handleOkay={handleOkay}/>}
+        {showNewBlogModal && <NewBlogModal onClose={() => handleClick(WARNING_MODAL.CANCEL)} />}
+        {showWarningModal && <AlertDialog title={WARNING_MODAL.TITLE} content={WARNING_MODAL.CONTENT} cancelText={WARNING_MODAL.CANCEL} okayText={WARNING_MODAL.OKAY} handleAlertClose={handleAlertClose} handleAlertOkay={handleAlertOkay}/>}
 
     </div>
   );

@@ -33,7 +33,7 @@ const Members = ({ onClose }) => {
                 {members?.map((member) => {
                     return(
                         <li key={member.id}>
-                            <img className='member-image' src={mainAPI + '/' + member.photo} alt={member.name} onError={handleImageError}/>
+                            <img className='member-image' src={mainAPI + '/' + member.photo} alt={member.name} onError={(e) => handleImageError(e, true)}/>
                             <p className='member-name'>{member.name}</p>
                             <p className='member-location'>{member.address.city}</p>
                         </li>
