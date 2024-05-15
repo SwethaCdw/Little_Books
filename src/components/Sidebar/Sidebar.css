@@ -1,0 +1,66 @@
+.sidebar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 16%;
+  background-color: white;
+  border: none;
+  height: 100vh;
+}
+.sidebar-container.dark-mode {
+  background-color: #021929;
+  color: white;
+}
+.sidebar-container.dark-mode .view-members, .sidebar-container.dark-mode .app-theme {
+  color: white !important;
+}
+.sidebar-container.dark-mode .view-members:hover, .sidebar-container.dark-mode .app-theme:hover {
+  color: #757575 !important;
+}
+.sidebar-container .logo {
+  font-size: 1.75rem;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  padding: 3.125rem 1.25rem;
+  text-align: center;
+}
+.sidebar-container .logo span:first-child {
+  color: #b354b7;
+}
+.sidebar-container .logo span:nth-child(2) {
+  font-weight: 500;
+}
+.sidebar-container .filter-items {
+  list-style: none;
+}
+.sidebar-container .filter-items .filter-heading {
+  padding-bottom: 0.625rem;
+}
+.sidebar-container .filter-items li {
+  display: flex;
+  gap: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+.sidebar-container .filter-items li input {
+  accent-color: #b354b7;
+  width: 1.125rem;
+  cursor: pointer;
+}
+.sidebar-container .filter-items li .filter-item {
+  font-size: 1rem;
+}
+.sidebar-container .buttons {
+  margin-bottom: 3rem;
+}
+.sidebar-container .buttons .view-members, .sidebar-container .buttons .app-theme {
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding-bottom: 0.625rem;
+  cursor: pointer;
+}
+.sidebar-container .buttons .view-members:hover, .sidebar-container .buttons .app-theme:hover {
+  color: #757575;
+}/*# sourceMappingURL=Sidebar.css.map */

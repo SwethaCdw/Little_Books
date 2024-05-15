@@ -1,0 +1,44 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+.members-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include flex-align(flex-end, center);
+    z-index: 1000;
+   
+    .members-modal-content {
+        width: 600px;
+        height: 100%;
+        background-color: $members-modal-background-light;
+        padding: 5rem 3.125rem;
+        transition: all 0.5s ease;
+        &.dark {
+            background-color: $members-modal-background-dark;
+            color: $dark-text-color;
+        }
+        .members-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+            list-style: none;
+            .member-name{
+                color: $primary-color;
+            }
+            img {
+                width: 156px;
+                height: 150px;
+                object-fit: cover;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+             }
+        }
+       
+    }
+  }
+  

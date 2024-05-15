@@ -1,0 +1,41 @@
+.members-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+.members-modal-backdrop .members-modal-content {
+  width: 600px;
+  height: 100%;
+  background-color: white;
+  padding: 5rem 3.125rem;
+  transition: all 0.5s ease;
+}
+.members-modal-backdrop .members-modal-content.dark {
+  background-color: #021929;
+  color: white;
+}
+.members-modal-backdrop .members-modal-content .members-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
+  list-style: none;
+}
+.members-modal-backdrop .members-modal-content .members-list .member-name {
+  color: #b354b7;
+}
+.members-modal-backdrop .members-modal-content .members-list img {
+  width: 156px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}/*# sourceMappingURL=Members.css.map */

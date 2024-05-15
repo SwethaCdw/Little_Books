@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sidebar-container "
+  >
+    <p
+      class="logo"
+    >
+      <span>
+        Little
+      </span>
+       
+      <span>
+        Book
+      </span>
+    </p>
+    <div>
+      <ul
+        class="filter-items"
+      >
+        <h4
+          class="filter-heading"
+        >
+          FILTER
+        </h4>
+        <label>
+          <li>
+            <input
+              type="checkbox"
+            />
+            <p
+              class="filter-item"
+            >
+              Technology Blogs
+            </p>
+          </li>
+        </label>
+        <label>
+          <li>
+            <input
+              type="checkbox"
+            />
+            <p
+              class="filter-item"
+            >
+              Travel Blogs
+            </p>
+          </li>
+        </label>
+      </ul>
+    </div>
+    <div
+      class="buttons"
+    >
+      <p
+        class="view-members"
+      >
+        View Members
+      </p>
+      <p
+        class="app-theme"
+      >
+        Switch to Dark Mode
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

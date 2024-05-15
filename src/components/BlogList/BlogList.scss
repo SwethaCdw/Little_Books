@@ -1,0 +1,124 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.blog-container {
+    width: 85%;
+    display: flex;
+    .blog-list {
+        width: 40%;
+        background-color: $blog-background;
+        padding: 1.875rem;
+        .blog-list-header {
+            @include flex-align(space-between, normal);
+            gap: 0.625rem;
+            margin-bottom: 1.25rem;
+            .search-input {
+                width: 75%;
+                height: 50px;
+                padding: 0 1.25rem;
+                border-radius: 1.75rem;
+                border: none;
+                background-color: $search-input-light;
+                font-size: 0.9375rem;
+            }
+            .new-blog {
+                width: 25%;
+                border: none;
+                border-radius: 2rem;
+                color: $new-blog-light;
+                font-weight: bold;
+                font-size: 1.125rem;
+            }
+        }
+        .card-list {
+            overflow: auto;
+            height: 100%;
+            padding-bottom: 3.75rem;
+            &::-webkit-scrollbar {
+                display: none;
+              }
+
+            .card {
+                border-radius: 0.625rem;
+                background-color: $card-light;
+
+                &.active {
+                    background-color: $card-active-light;
+                }
+            }
+        }
+    }
+    .detailed-description {
+        width: 57%;
+        margin: 1.6rem auto;
+        img {
+            width: 94%;
+            height: 450px; 
+            border-radius: 1.25rem;
+            margin: 1.25rem 1.25rem 0;
+            object-fit: cover;
+        
+        }
+        .selected-blog-title {
+            width: 100%;
+            font-size: 1.75rem;
+            font-family: "Roboto Slab", serif;
+            padding: 0 0.625rem;
+            margin: 1.5rem 0.625rem;
+            border: none;
+            font-size: 2.25rem;
+            font-weight: 500;
+        }
+        .selected-blog-details {
+            height: 30%;
+            padding: 0 0.625rem 1.25rem;
+            margin: 0 0.625rem;
+            overflow: auto;
+            width: 100%;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 0.9375rem;
+            border: none;
+        }
+        .save-content-btn {
+            background-color: $primary-color;
+            color: $dark-text-color;
+            margin-left: 0.625rem;
+        }
+        button {
+            margin-bottom: 1.875rem;
+            float: right;
+            border: none;
+            padding: 0.625rem 1.5rem;
+            border-radius: 1.875rem;
+            background-color: $button-color;
+            font-weight: 600;
+        }
+    }
+    &.dark {
+        background-color: $dark-background;
+        color: $dark-text-color;
+        .blog-list {
+            background-color: $blog-list-dark-background;
+            color: $dark-text-color;
+            .search-input {
+                background-color: $dark-background;
+            }
+            .card {
+                background-color: $dark-card;
+                color: $dark-text-color;
+                &.active {
+                    background-color: $dark-background;
+                }
+            }
+        }
+        input, textarea {
+            color: $dark-text-color;
+            background-color: $dark-background;
+        }
+    }
+    textarea {
+        font-family: inherit;
+    }
+}
