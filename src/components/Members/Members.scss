@@ -15,7 +15,7 @@
         width: 600px;
         height: 100%;
         background-color: $members-modal-background-light;
-        padding: 80px 50px;
+        padding: 5rem 3.125rem;
         transition: all 0.5s ease;
         &.dark {
             background-color: $members-modal-background-dark;
@@ -24,7 +24,7 @@
         .members-list {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
+            gap: 1.25rem;
             list-style: none;
             .member-name{
                 color: $primary-color;
@@ -33,9 +33,9 @@
                 width: 156px;
                 height: 150px;
                 object-fit: cover;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-                border-bottom-right-radius: 15px;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                border-bottom-right-radius: 1rem;
              }
         }
        

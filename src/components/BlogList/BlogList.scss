@@ -8,24 +8,24 @@
     .blog-list {
         width: 40%;
         background-color: $blog-background;
-        padding: 30px;
+        padding: 1.875rem;
         .blog-list-header {
             @include flex-align(space-between, normal);
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 0.625rem;
+            margin-bottom: 1.25rem;
             .search-input {
                 width: 75%;
                 height: 50px;
-                padding: 0 20px;
-                border-radius: 28px;
+                padding: 0 1.25rem;
+                border-radius: 1.75rem;
                 border: none;
                 background-color: $search-input-light;
-                font-size: 15px;
+                font-size: 0.9375rem;
             }
             .new-blog {
                 width: 25%;
                 border: none;
-                border-radius: 32px;
+                border-radius: 2rem;
                 color: $new-blog-light;
                 font-weight: bold;
                 font-size: 1.125rem;
@@ -34,66 +34,64 @@
         .card-list {
             overflow: auto;
             height: 100%;
-            padding-bottom: 60px;
+            padding-bottom: 3.75rem;
             &::-webkit-scrollbar {
                 display: none;
               }
 
-            .card{
-                border-radius: 10px;
-                background-color: $card-light ;
+            .card {
+                border-radius: 0.625rem;
+                background-color: $card-light;
 
                 &.active {
-                    background-color: $card-active-light;      
+                    background-color: $card-active-light;
                 }
             }
         }
     }
     .detailed-description {
         width: 57%;
-        margin: 25px auto;
+        margin: 1.6rem auto;
         img {
             width: 94%;
-            height: 450px;
-            border-radius: 20px;
-            margin: 20px 20px 0;
+            height: 450px; 
+            border-radius: 1.25rem;
+            margin: 1.25rem 1.25rem 0;
             object-fit: cover;
         
         }
         .selected-blog-title {
             width: 100%;
-            font-size: 28px;
+            font-size: 1.75rem;
             font-family: "Roboto Slab", serif;
-            padding: 0 10px;
-            margin: 25px 10px;
+            padding: 0 0.625rem;
+            margin: 1.5rem 0.625rem;
             border: none;
             font-size: 2.25rem;
             font-weight: 500;
-
         }
         .selected-blog-details {
             height: 30%;
-            padding: 0 10px 20px;
-            margin: 0 10px;
+            padding: 0 0.625rem 1.25rem;
+            margin: 0 0.625rem;
             overflow: auto;
             width: 100%;
             font-size: 1.1rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 0.9375rem;
             border: none;
-        
         }
         .save-content-btn {
             background-color: $primary-color;
             color: $dark-text-color;
-            margin-left: 10px;
+            margin-left: 0.625rem;
         }
         button {
-            margin-bottom: 30px;
+            margin-bottom: 1.875rem;
             float: right;
             border: none;
-            padding: 10px 25px;
-            border-radius: 30px;
+            padding: 0.625rem 1.5rem;
+            border-radius: 1.875rem;
             background-color: $button-color;
             font-weight: 600;
         }
@@ -109,9 +107,9 @@
             }
             .card {
                 background-color: $dark-card;
-                color:$dark-text-color;
+                color: $dark-text-color;
                 &.active {
-                    background-color: $dark-background ;      
+                    background-color: $dark-background;
                 }
             }
         }
@@ -119,10 +117,8 @@
             color: $dark-text-color;
             background-color: $dark-background;
         }
-       
     }
     textarea {
         font-family: inherit;
     }
-   
 }

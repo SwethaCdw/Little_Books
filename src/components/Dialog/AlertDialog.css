@@ -6,9 +6,9 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.Mu
   background-color: #b354b7;
   cursor: pointer;
   border: none;
-  border-radius: 32px;
-  padding: 10px 25px;
+  border-radius: 2rem;
+  padding: 0.625rem 1.625rem;
   font-weight: 900;
   color: white;
-  margin: 0 10px 10px;
+  margin: 0 0.625rem 0.625rem;
 }/*# sourceMappingURL=AlertDialog.css.map */

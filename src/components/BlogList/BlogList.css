@@ -5,28 +5,28 @@
 .blog-container .blog-list {
   width: 40%;
   background-color: #f5f6fa;
-  padding: 30px;
+  padding: 1.875rem;
 }
 .blog-container .blog-list .blog-list-header {
   display: flex;
   align-items: normal;
   justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 .blog-container .blog-list .blog-list-header .search-input {
   width: 75%;
   height: 50px;
-  padding: 0 20px;
-  border-radius: 28px;
+  padding: 0 1.25rem;
+  border-radius: 1.75rem;
   border: none;
   background-color: #ebecf3;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .blog-container .blog-list .blog-list-header .new-blog {
   width: 25%;
   border: none;
-  border-radius: 32px;
+  border-radius: 2rem;
   color: white;
   font-weight: bold;
   font-size: 1.125rem;
@@ -34,13 +34,13 @@
 .blog-container .blog-list .card-list {
   overflow: auto;
   height: 100%;
-  padding-bottom: 60px;
+  padding-bottom: 3.75rem;
 }
 .blog-container .blog-list .card-list::-webkit-scrollbar {
   display: none;
 }
 .blog-container .blog-list .card-list .card {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: white;
 }
 .blog-container .blog-list .card-list .card.active {
@@ -48,48 +48,48 @@
 }
 .blog-container .detailed-description {
   width: 57%;
-  margin: 25px auto;
+  margin: 1.6rem auto;
 }
 .blog-container .detailed-description img {
   width: 94%;
   height: 450px;
-  border-radius: 20px;
-  margin: 20px 20px 0;
+  border-radius: 1.25rem;
+  margin: 1.25rem 1.25rem 0;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .blog-container .detailed-description .selected-blog-title {
   width: 100%;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-family: "Roboto Slab", serif;
-  padding: 0 10px;
-  margin: 25px 10px;
+  padding: 0 0.625rem;
+  margin: 1.5rem 0.625rem;
   border: none;
   font-size: 2.25rem;
   font-weight: 500;
 }
 .blog-container .detailed-description .selected-blog-details {
   height: 30%;
-  padding: 0 10px 20px;
-  margin: 0 10px;
+  padding: 0 0.625rem 1.25rem;
+  margin: 0 0.625rem;
   overflow: auto;
   width: 100%;
   font-size: 1.1rem;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
   border: none;
 }
 .blog-container .detailed-description .save-content-btn {
   background-color: #b354b7;
   color: white;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 .blog-container .detailed-description button {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
   float: right;
   border: none;
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 0.625rem 1.5rem;
+  border-radius: 1.875rem;
   background-color: #69f8f9;
   font-weight: 600;
 }

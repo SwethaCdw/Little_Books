@@ -1,11 +1,11 @@
 
 import React, { useEffect } from 'react';
-import './Members.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../services/Api-service';
 import { mainAPI, membersAPILink } from '../../constants/api-constants';
-import { useDispatch, useSelector } from 'react-redux';
 import { setMembersData } from '../../store/membersSlice';
 import { handleImageError } from '../../utils/common-utils';
+import './Members.css';
 
 const Members = ({ onClose }) => {
     const dispatch = useDispatch();

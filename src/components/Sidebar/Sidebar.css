@@ -1,8 +1,8 @@
 .sidebar-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
   width: 16%;
   background-color: white;
   border: none;
@@ -16,13 +16,13 @@
   color: white !important;
 }
 .sidebar-container.dark-mode .view-members:hover, .sidebar-container.dark-mode .app-theme:hover {
-  color: gray !important;
+  color: #757575 !important;
 }
 .sidebar-container .logo {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-family: "Roboto Slab", serif;
   font-weight: 400;
-  padding: 50px 20px;
+  padding: 3.125rem 1.25rem;
   text-align: center;
 }
 .sidebar-container .logo span:first-child {
@@ -35,32 +35,32 @@
   list-style: none;
 }
 .sidebar-container .filter-items .filter-heading {
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
 }
 .sidebar-container .filter-items li {
   display: flex;
-  gap: 10px;
-  padding-bottom: 10px;
+  gap: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 .sidebar-container .filter-items li input {
   accent-color: #b354b7;
-  width: 17px;
+  width: 1.125rem;
   cursor: pointer;
 }
 .sidebar-container .filter-items li .filter-item {
-  font-size: 15px;
+  font-size: 1rem;
 }
 .sidebar-container .buttons {
-  margin-bottom: 45px;
+  margin-bottom: 3rem;
 }
 .sidebar-container .buttons .view-members, .sidebar-container .buttons .app-theme {
-  font-size: 15px;
+  font-size: 1rem;
   border: none;
   background-color: transparent;
   color: black;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
   cursor: pointer;
 }
 .sidebar-container .buttons .view-members:hover, .sidebar-container .buttons .app-theme:hover {
-  color: gray;
+  color: #757575;
 }/*# sourceMappingURL=Sidebar.css.map */

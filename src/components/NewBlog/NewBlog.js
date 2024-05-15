@@ -46,12 +46,15 @@ const NewBlogModal = ({ onClose }) => {
   const handleFileInputChange = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setFormData({ ...formData, photo: event.target.result });
-      setSelectedImage(event.target.result);
-    };
-    reader.readAsDataURL(file);
+    if(file){
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setFormData({ ...formData, photo: event.target.result });
+        setSelectedImage(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+   
   };
 
   return (

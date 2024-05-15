@@ -1,6 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { BLOG_TYPE } from '../constants/common-constants';
-import { setItemInLocalStorage } from '../utils/local-storage-utils';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getItemFromLocalStorage, setItemInLocalStorage } from '../utils/local-storage-utils';
+import { fetchData } from '../services/Api-service';
+import { blogsAPILink } from '../constants/api-constants';
+
+export const fetchBlogs = createAsyncThunk('blog/fetchBlogs', async () => {
+  const storedBlogs = JSON.parse(getItemFromLocalStorage('blogs'));
+  if (storedBlogs?.length) {
+    return storedBlogs;
+  } else {
+    const data = await fetchData(blogsAPILink);
+    return data;
+  }
+});
 
 const blogSlice = createSlice({
   name: 'blog',
@@ -10,14 +21,10 @@ const blogSlice = createSlice({
     selectedBlog: null,
     imageLoaded: false,
     showNewBlogModal: false,
-    selectedFilters: BLOG_TYPE,
+    selectedFilters: [],
     editMode: false
   },
   reducers: {
-    setBlogsData(state, action) {
-      state.blogsData = action.payload;
-      setItemInLocalStorage('blogs', JSON.stringify(action.payload));
-    },
     setSearchTerm(state, action) {
       state.searchTerm = action.payload;
     },
@@ -51,9 +58,24 @@ const blogSlice = createSlice({
     setEditMode : (state, action) => {
       state.editMode = action.payload;
     }
-  }
+  },
+    extraReducers: (builder) => {
+      builder
+        .addCase(fetchBlogs.pending, (state) => {
+          state.status = 'loading';
+        })
+        .addCase(fetchBlogs.fulfilled, (state, action) => {
+          state.status = 'succeeded';
+          state.blogsData = action.payload;
+          state.selectedBlog = action.payload[0];
+        })
+        .addCase(fetchBlogs.rejected, (state, action) => {
+          state.status = 'failed';
+          state.error = action.error.message;
+        });
+    }
 });
 
-export const { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, addNewBlog, setShowNewBlogModal, updateSelectedBlog, updateSelectedFilter, setEditMode} = blogSlice.actions;
+export const { setSearchTerm, setSelectedBlog, setImageLoaded, addNewBlog, setShowNewBlogModal, updateSelectedBlog, updateSelectedFilter, setEditMode} = blogSlice.actions;
 
 export default blogSlice.reducer;

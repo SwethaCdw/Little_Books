@@ -15,8 +15,8 @@ button {
   background-color: #b354b7;
   cursor: pointer;
   border: none;
-  border-radius: 32px;
-  padding: 10px 25px;
+  border-radius: 2rem;
+  padding: 0.625rem 1.563rem;
   font-weight: 900;
 }
 button:hover {

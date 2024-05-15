@@ -1,1 +1,1 @@
-{"version":3,"sources":["AlertDialog.scss","AlertDialog.css"],"names":[],"mappings":"AAAA;EACI,aAAA;ACCJ;;ADCA;EACI,yBAAA;EACA,eAAA;EACA,YAAA;EACA,mBAAA;EACA,kBAAA;EACA,gBAAA;EACA,YAAA;EACA,mBAAA;ACEJ","file":"AlertDialog.css"}
+{"version":3,"sources":["AlertDialog.scss","AlertDialog.css","../../styles/colors.scss"],"names":[],"mappings":"AAGA;EACI,aAAA;ACFJ;;ADIA;EACI,yBEDY;EFEZ,eAAA;EACA,YAAA;EACA,mBAAA;EACA,0BAAA;EACA,gBAAA;EACA,YEDc;EFEd,2BAAA;ACDJ","file":"AlertDialog.css"}

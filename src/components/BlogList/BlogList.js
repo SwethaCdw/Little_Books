@@ -6,11 +6,12 @@ import Search from '../Search/Search';
 import { handleImageError } from '../../utils/common-utils';
 import { FALLBACK_IMAGE } from '../../constants/common-constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, setShowNewBlogModal, updateSelectedBlog, setEditMode } from '../../store/blogSlice';
+import { setBlogsData, setSearchTerm, setSelectedBlog, setImageLoaded, setShowNewBlogModal, updateSelectedBlog, setEditMode, fetchBlogs } from '../../store/blogSlice';
 import NewBlogModal from '../NewBlog/NewBlog';
 import AlertDialog from '../Dialog/AlertDialog';
 import { getItemFromLocalStorage } from '../../utils/local-storage-utils';
 import { BUTTONS, IMAGE_LOADING, NO_BLOGS_FOUND, WARNING_MODAL } from '../../constants/blog-constants';
+import { blogsAPILink } from '../../constants/api-constants';
 
 
 const BlogList = () => {
@@ -36,24 +37,9 @@ const BlogList = () => {
      * Fetch the data from API
      */
     useEffect(() => {
-      const fetchDataFromApi = async () => {
-        try {
-          const storedBlogs = JSON.parse(getItemFromLocalStorage('blogs'));
-          if(storedBlogs?.length){
-            dispatch(setBlogsData(storedBlogs));
-            dispatch(setSelectedBlog(storedBlogs[0]));
-          } else {
-            const data = await fetchData('resources/blogs.json');
-            dispatch(setBlogsData(data));
-            dispatch(setSelectedBlog(data[0]));
-          }
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      fetchDataFromApi();
+      dispatch(fetchBlogs());
     }, [dispatch]);
+  
 
       /**
    * Focus the title input when edit mode is enabled

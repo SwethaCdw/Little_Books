@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Sidebar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOpenModal } from '../../store/membersSlice';
@@ -15,6 +15,10 @@ const Sidebar = () => {
   const selectedFilters = useSelector((state) => state.blog.selectedFilters);
   const blogsData = useSelector((state) => state.blog.blogsData);
   const types = [...new Set(blogsData.map(blog => blog.type))].sort();
+
+  useEffect(() => {
+    dispatch(updateSelectedFilter([...new Set(blogsData.map(blog => blog.type))].sort()));
+  }, [dispatch, blogsData])
 
   const openMembersModal = () => {
     dispatch(setOpenModal(true));

@@ -1,3 +1,6 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 .sidebar-container {
     @include flex-align(space-between, center);
     flex-direction: column;
@@ -16,10 +19,10 @@
         }
     }
     .logo {
-        font-size: 28px;
+        font-size: 1.75rem;
         font-family: $font-family-primary;
         font-weight: 400;
-        padding: 50px 20px;
+        padding: 3.125rem 1.25rem;
         text-align: center;
 
         span:first-child {
@@ -33,30 +36,30 @@
     .filter-items {
       list-style: none;
       .filter-heading {
-        padding-bottom: 10px;
+        padding-bottom: 0.625rem;
       }
       li {
         display: flex;
-        gap: 10px;
-        padding-bottom: 10px;
+        gap: 0.625rem;
+        padding-bottom: 0.625rem;
         input {
             accent-color: $primary-color;
-            width: 17px;
+            width: 1.125rem;
             cursor: pointer;
         }
         .filter-item {
-            font-size: 15px;
+            font-size: 1rem;
         }
       }
     }
     .buttons {
-        margin-bottom: 45px;
+        margin-bottom: 3rem;
         .view-members, .app-theme {
-            font-size: 15px;
+            font-size: 1rem;
             border: none;
             background-color: transparent;
             color: $text-color;
-            padding-bottom: 10px;
+            padding-bottom: 0.625rem;
             cursor: pointer;
             &:hover {
                 color: $form-input-color;
